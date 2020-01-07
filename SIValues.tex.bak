@@ -1,0 +1,56 @@
+% Shortcuts for SI Values
+% Grundlagen: https://www.namsu.de/Extra/pakete/Siunitx.html
+% Gute Erklärung der Shortcuts: https://texwelt.de/fragen/2588/wie-schreibe-ich-zahlen-mit-einheiten-richtig
+
+%\DeclareSIUnit{\BeladungsDichte}{\kilo\gram_{\textup{H\textup{2}}\per\kilo\gram_{\textup{FeTi}}}}		% Beladungsdichte
+%\DeclareDocumentCommand\BeladungsDichte{O{}m}{\SI[#1]{#2}{\BeladungsDichte}}
+
+%\DeclareSIUnit[]\NormVolumen
+%{\text{\ensuremath{\cubic\meter_{\textup{i.N.}}}}}
+
+%%%%%%% New SIValues
+
+\DeclareSIUnit\kgh{\kg_{H\textsubscript{2}}}
+\DeclareSIUnit\kgfe{\kg_{FeTi}}
+\DeclareSIUnit\normvol{\cubic\meter_{i.N.}}
+\DeclareSIUnit\normvolL{\liter_{i.N.}}
+
+%%%%%%% New complete Commands
+
+\NewDocumentCommand\DeclareNewQuantity{mmm}{%
+	\DeclareSIUnit{#2}{#3}%
+	\DeclareDocumentCommand{#1}{O{}m}{\SI[##1]{##2}{#2}}%
+}
+
+\DeclareNewQuantity
+	\Beladungsdichte
+	\beladungsdichte
+	{\kgh\per\kgfe}
+\DeclareNewQuantity
+	\Dichte
+	\dichte
+	{\kg\per\cubic\meter}
+\DeclareNewQuantity
+	\Faraday
+	\faraday
+	{\ampere\second\per\mol}
+\DeclareNewQuantity
+	\Molarvolumen
+	\molarvolumen
+	{\liter\per\mol}
+\DeclareNewQuantity
+	\Normvolumen
+	\normvolumen
+	{\normvol}
+\DeclareNewQuantity
+	\Normvolumenstrom
+	\normvolumenstrom
+	{\normvolL\per\minute}
+\DeclareNewQuantity
+	\Normvolumenstromsec
+	\normvolumenstromsec
+	{\normvolL\per\second}
+\DeclareNewQuantity
+	\Volumenstrom
+	\volumenstrom
+	{\liter\per\minute}

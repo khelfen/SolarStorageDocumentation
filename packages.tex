@@ -1,0 +1,109 @@
+%%%%%%%%% Dokumentenklasse
+\documentclass[
+	fontsize=12pt,
+	paper=a4,
+	oneside,
+	leqno
+	]{scrartcl}
+
+
+%%%%%%%%% Sprachpackages
+\usepackage[T1]{fontenc}								% Textzeichen für westeuropäische Sprachen
+\usepackage[utf8]{inputenc}							% Umlaute
+\usepackage[ngerman]{babel}						% Automatisch erzeugte Texte werden auf Deutsch ausgegeben
+
+
+%%%%%%%%% Mathe und Naturwissenschaftliche Darstellung
+\usepackage[
+%	fleqn															% linksbündige Formeln
+	]{amsmath}												% Vielzahl von neuen Umgebungen und Befehlen für den mathematischen Bereich
+\usepackage{siunitx}										% Saubere Darestellung von SI Einheiten
+\sisetup{
+	%locale = DE,												% Deutsche Norm, Kommas werden z.B. erkannt
+	per-mode=fraction,									% Output a/b as \frac{a}{b} - in der Einheit
+	quotient-mode=fraction,								% Output a/b as \frac{a}{b} - im Quotienten
+	fraction-function=\tfrac
+}
+\newenvironment{conditions}						% New environment - Für saubere Darstellung gegebener Variablen
+	{\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+	{\end{tabular}\par\vspace{\belowdisplayskip}}
+
+%%%%%%%%% Schritart
+\usepackage{mathptmx}								% Times New Roman
+
+
+%%%%%%%%% Grafiken und Farben
+\usepackage{graphicx}									% viele grafische Befehle, z.B. \scalebox
+\usepackage{xcolor, colortbl}							% Farben und Farbpaletten
+\usepackage[export]{adjustbox}						% Positionieren von Grafiken, left, right, center
+\usepackage{float}										% Floating Bilder, H-Befehl
+\usepackage{mwe} 										% Fuer Abbildungsverzeichnis
+\usepackage[center]{caption} 						% Zentriert Bildunterschriften
+\usepackage[labelfont={color=black,sf,it},
+	font={color=black,footnotesize,it},
+	labelsep=space
+	]{caption}													% customise captions
+\usepackage{subfigure}									%support for the manipulation and reference of small or ‘sub’ figures and tables within a single figure or table environment
+\usepackage{fancybox}									% kann Boxen (Rahmen) um Elemente legen
+
+
+%%%%%%%%% Seitenformatierung
+\usepackage[
+	headsepline,												% Vertikale Linie unterm Header
+	plainheadsepline,
+	automark													% Section im Header
+	]{scrlayer-scrpage}									% Paket zur Manipulation der Kopf- und Fußzeilen
+\renewcommand{\headfont}{}						% Voreingestellte Schriftart bearbeiten, z.B. möglich \itshape für ein feines Kursiv
+\usepackage[onehalfspacing]{setspace}			% Setzt Zeilenabstand auf 1.5
+\usepackage[
+	hidelinks													% keine Boxen um die Links im PDF
+	]{hyperref}												% Zulassen von Links u.ä. im PDF File
+\usepackage[													% optische Verbesserungen des Dokuments
+	final
+	]{microtype}
+
+
+%%%%%%%%% Tabellenumgebung
+\usepackage{booktabs}									% enhances the quality of tables
+\usepackage{array}										% extends the options for column formats
+\usepackage{multirow}									% mehrzeilige Tabellenzellen
+\usepackage{tabularx}									% Tabellenumgebung, praktisch für Textweite-Tabellen, Standard Column-Type: X
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}	% Neuer rechtsbündiger Column-Type
+
+
+%%%%%%%%% Datumsformat \today
+\usepackage[ngerman, num]{isodate}				% \today im DD. MM. YYYY Format
+\daymonthsepgerman{}{}								%
+\monthyearsepgerman{}{}								% entfernt Leerzeichen nach den Punkten
+
+
+%%%%%%%%% Kopf- und Fußzeile
+\ofoot*{\today}
+\cfoot{Seite \pagemark}									% Mittleres Foot-Element
+
+%%%%%%%%% Abkürzungsverzeichnis:
+\usepackage[													% Paket für Glossaries und Acronym-Glossaries
+	acronym,
+	automake,
+	nopostdot
+	]{glossaries}
+
+%%%%%%%%% Quellen
+\usepackage[
+	backend = biber,
+	bibencoding = utf8,
+	style = alphabetic,
+	block = space,
+	]{biblatex}
+	
+
+%%%%%%%%% Formatierung TOC
+\usepackage{tocstyle}
+\newtocstyle[KOMAlike][leaders]{alldotted}{}	% Punktlinienführung, wie Abbildungs- und Tabellenverzeichnis
+\usetocstyle{alldotted}
+
+	
+%\usepackage{tocloft}
+%\setlength\cftparskip{0pt}
+%\setlength\cftbeforesecskip{0pt}
+%\setlength\cftaftertoctitleskip{1pt}

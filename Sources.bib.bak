@@ -1,0 +1,21 @@
+@online{HERA04,
+    author = {HERA Hydrogen Storage Systems Inc},
+    title = {Wasserstoffspeicherung in Metallhydriden},
+    year = {2004},
+    url = {http://www.h2hh.de/downloads/HERA.pdf},
+    note = {(Zugriff am 21.10.2019)}
+}
+@online{Gueney16,
+    author = {Tibelya Güney},
+    title = {Auslegung eines Metallhydrid-Wirbelschichtreaktorszur Speicherung von Wasserstoff und Durchführungeiner Wirtschaftlichkeitsanalyse},
+    year = {2016},
+    url = {https://publik.tuwien.ac.at/files/PubDat_247842.pdf},
+    note = {(Zugriff am 20.10.2019)}
+}
+@online{Wenger08,
+    author = {David Wenger},
+    title = {Metallhydridspeicher zur Wasserstoffversorgungund Kühlung von Brennstoffzellenfahrzeugen},
+    year = {2008},
+    url = {https://www.wenger-engineering.de/wp-content/uploads/Dissertation_David_Wenger_Metallhydridspeicher-zur-Wasserstoffversorgung.pdf},
+    note = {(Zugriff am 20.10.2019)}
+}
