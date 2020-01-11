@@ -1,6 +1,6 @@
 % Einleitung
 
-\section{Einleitung}
+\section{Motivation und Problemstellung}
 
 Die wirtschatliche Nutzung von Heimspeichern, über die Erhöhung des Eigenverbrauchsanteils hinaus, gewinnt mehr und mehr an Bedeutung. So wurde 2018 das virtuelle Kraftwerk der sonnen GmbH für die Teilnahme am Primärregelleistungsmarkt durch die TenneT TSO GmbH präqualifiziert \parencite{tennet18}. Hierdurch kann sich die sonnen GmbH weiterer Geschäftsfelder erschließen und seine Erlöse erhöhen.\medskip\\
 Grundlage des virtuellen Kraftwerks bilden die einzelnen Heimspeicher der Kunden der sonnen GmbH. Diese werden softwareseitig intelligent miteinander verknüpft, um die Anforderungen der Primärregelleistungserbringung zu erfüllen. Diese Arbeit soll die rein wirtschaftliche Betrachtung der hierzu gehörigen Cloud-Stromverträge aus Sicht des Kunden ermöglichen.\medskip\\
