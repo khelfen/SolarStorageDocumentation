@@ -1,3 +1,9 @@
+@online{flat20,
+    author = {sonnen GmbH},
+    title = {Die Energieversorgungder Zukunft. Heute.},
+    url = {https://static1.squarespace.com/static/59af54ba15d5db05ecec047b/t/5ccbd6b41905f4aafa87d4a5/1556862685075/2.7+Kundenbrosch%C3%BCre+sonnen+GmbH+DE.pdf},
+    note = {(Zugriff am 12.01.2020)}
+}
 @online{htwLast18,
     author = {Hochschule für Technik und Wirtschaft Berlin},
     title = {Lastprofile für Wohngebäude},
@@ -27,13 +33,20 @@
     url = {https://www.next-kraftwerke.de/wissen/primaerreserve-primaerregelleistung},
     note = {(Zugriff am 10.01.2020)}
 }
-@misc{regel_PQ,
+@misc{regel_PQ19,
     author = {Deutsche ÜNB},
     title = {Präqualifikationsverfahren für Regelreserveanbieter (Stand 23. Mai 2019)},
     howpublished = {\url{https://www.regelleistung.net/ext/download/PQ_Bedingungen_FCR_aFRR_mFRR}},
     month = {05},
     year = {2019},
     note = {(Zugriff am 10.01.2020)}
+}
+@online{sonnenBonus20,
+    author = {sonnen GmbH},
+    title = {Häufig gestellte Fragen zur Direktvermarktung},
+    year = {2020},
+    url = {https://sonnen.de/haeufig-gestellte-fragen/},
+    note = {(Zugriff am 12.01.2020)}
 }
 @online{sonnenBat18,
     author = {sonnen GmbH},
@@ -57,5 +70,3 @@
     year = {2019},
     note = {(Zugriff am 10.01.2020)}
 }
-
-https://www.regelleistung.net/ext/download/PQ_Bedingungen_FCR_aFRR_mFRR

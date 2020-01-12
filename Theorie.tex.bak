@@ -2,7 +2,7 @@
 
 \section{Theoretische Grundlagen und Datengrundlage}
 
-In diesem Kapitel sollen die wichtigsten Grundlagen erläutert werden, um eine Bewertung des Einflusses der Nutzung des Speichersystems für die Erbringung von Primärregelleistung vornehmen zu können. Hierzu zählen die theoretischen Grundlagen der Erbringung von Primärregelleistung und des virtuellen Kraftwerks inklusive der verwendeten Hardware. Weiterhin wird auf die wichtigsten verwendeten Python und Matlab Befehle, sowie die verwendeten Datensätze und deren Aufarbeitung eingegangen.
+In diesem Kapitel sollen die wichtigsten Grundlagen erläutert werden, um eine Bewertung des Einflusses der Nutzung des Speichersystems für die Erbringung von Primärregelleistung vornehmen zu können. Hierzu zählen die theoretischen Grundlagen der Erbringung von Primärregelleistung und des virtuellen Kraftwerks inklusive der verwendeten Hardware. Weiterhin wird auf die wichtigsten verwendeten Python und Matlab Befehle, sowie die verwendeten Datensätze und deren Aufarbeitung eingegangen. Zusätzlich wird das Vertragsmodell der sonnenFlat erläutert, um die Kostenstruktur darstellen zu können.
 
 \subsection{Primärregelleistung}
 
@@ -13,7 +13,7 @@ Der Zweck der Primärregelleistung liegt darin, die Netzfrequenz durch gezielte 
 \subsection{sonnenBatterie eco 8.0}\label{sec:SB_eco8_Theorie}
 
 Ein Schwarm aus Heimspeichern der sonnenBatterie eco 8.0 Serie bildet die physische Grundlage des virtuellen Kraftwerks. Bei der eco 8.0 handelt es sich um einen Lithium-Eisenphosphat-Akkumulator, dessen wesentlichen technischen Eigenschaften die Möglichkeiten des gesamten virtuellen Kraftwerks begrenzen.\\
-Die einzelnen Batterien besitzen je nach Ausstattung eine nutzbare Batteriekapazität von \SIrange{4}{16}{\kilo\watt\hour}. Vereinfachend wird angenommen, dass nur sonnenBatterien mit einer Kapazität von mindestens \SI{8}{\kilo\watt\hour} eingesetzt werden. Ab einer Kapazität von  \SI{8}{\kilo\watt\hour} ist jede Batterie  mit einem Wechselrichter ausgestattet, der eine Nennleistung von \SI{3.3}{\kilo\watt} besitzt \parencite{sonnenBat18}.\\
+Die einzelnen Batterien besitzen je nach Ausstattung eine nutzbare Batteriekapazität von \SIrange{4}{16}{\kwh}. Vereinfachend wird angenommen, dass nur sonnenBatterien mit einer Kapazität von mindestens \SI{8}{\kwh} eingesetzt werden. Ab einer Kapazität von  \SI{8}{\kwh} ist jede Batterie  mit einem Wechselrichter ausgestattet, der eine Nennleistung von \SI{3.3}{\kilo\watt} besitzt \parencite{sonnenBat18}.\\
 Der mittlere Wirkungsgrad des Wechselrichters beträgt im Entladefall \SI{94.5}{\percent} und im Ladefall \SI{94.4}{\percent}. Weiterhin weißt die Batterie einen Wirkungsgrad von \SI{93.8}{\percent} auf \parencite{htwInspek19}.
 
 \subsection{Das virtuelle Kraftwerk}\label{sec:VK_Theorie}
@@ -27,13 +27,28 @@ Das grundlegende Funktionsprinzip des virtuellen Kraftwerks wird durch einen üb
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=\textwidth]{Bilder/P-E_factor.png}
-		\caption{Zulässiger Arbeitsbereich bei der Erbringung von Primärregelleistung \parencite[s. S. 61][]{regel_PQ}}
+		\caption{Zulässiger Arbeitsbereich bei der Erbringung von Primärregelleistung \parencite[s. S. 61][]{regel_PQ19}}
 		\label{fig:P_E_factor}
 	\end{center}
 \end{figure}
 
 \noindent Im Falle begrenzter Energiespeicher kommen die in Abbildung \ref{fig:P_E_factor} dargestellten zulässigen Arbeitsbereiche zur Anwendung. Durch dies wird sichergestellt, dass der Energiespeicher jederzeit seine vollständige angebotene Regelleistung für \SI{15}{\minute} zur Verfügung zu stellen.\medskip\\
 In dem Fall des simulierten virtuellen Kraftwerks besteht ein Speicherverhältnis von \SIrange{4.8}{9.6}{}, je nach Größe der einzelnen Speichereinheiten. Da jedoch das Lademanagement innerhalb dieser Simulation nicht abgebildet werden kann, wurde sich für Ladestandsgrenzen von \SI{80}{\percent} im oberen und \SI{20}{\percent} im unteren Energiebereich entschieden.
+
+\subsection{Die sonnenFlat}
+
+Das Konzept der sonnenFlat beruht in erster Linie auf der sogenannten Freistrommenge. Diese dient als Leistungstausch für die Einschränkungen des eigenverbrauchsoptimierten Verhaltens der Batterie. Die Freistrommenge bezieht sich auf den Gesamtstromverbrauch und beinhaltet den Direktverbrauch der Photovoltaikanlage und den zusätzlichen Netzbezug. Der Netzbezug der Batterie für die Erbringung von Primärregelleistung wird getrennt bilanziert.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{Bilder/flat.png}
+		\caption{Varianten der sonnenFlat \parencite[s. S. 26][]{flat20}}
+		\label{fig:flat_ver}
+	\end{center}
+\end{figure}
+
+\noindent In Abbildung \ref{fig:flat_ver} sind die verschiedenen Varianten der sonnenFlat vorgegeben. Die Freistrommenge des Kunden hängt sowohl von der Leistung der Photovoltaikanlage und der Kapazität des Batteriespeichers ab. Die minimale Größe der Photovoltaikanlage beträgt hierbei \SI{5.5}{\kwp}, weshalb dies als minimale Größe der Simulation angenommen wurde. In dieser Simulation wird davon ausgegangen, dass der Kunde immer die für seine spezielle Situation größtmögliche sonnenFlat erhält. Hiervon ausgenommen ist die sonnenFlat 8000, da bei dieser höhere Community-Beiträge anfallen. Bei Überziehung der Freistrommenge von bis zu \SI{2000}{\kwh}, fallen bei der sonnenFlat Arbeitspreise von \SI{23}{\ctkwh} und darüber \SI{25.9}{\ctkwh} an \parencite{flat20}. Der Break-even-Point der sonnenFlat 8000 gegenüber der sonnenFlat 6750 ist somit ab einem jährlichen Stromverbrauch von \SI{7272}{\kwh} erreicht.\medskip\\
+Eine weitere Besonderheit des sonnenFlat Vertrages ist der sogenannte sonnenBonus.. Hierbei handelt es sich um einen Aufschlag von  \SI{0.25}{\ctkwh} für jede eingespeiste Kilowattstunde der Photovoltaikanlage auf die übliche EEG-Vergütung \parencite{sonnenBonus20}.
 
 \subsection{Verwendete Python und Matlab Befehle}
 
@@ -43,7 +58,7 @@ In dem Fall des simulierten virtuellen Kraftwerks besteht ein Speicherverhältni
 
 \subsection{Datengrundlage}
 
-Für die Simulation des Einflusses des virtuellen Kraftwerks kamen drei Datensätze zum Einsatz. Hierzu zählt ein Haushaltslastprofil, das Erzeugungsprofil einer Photovoltaikanlage und das Profil der Netzfrequenz im europäische Verbundsystem. Jeder Datensatz hat eine 1-minütige Auflösung und bildet ein ganzes Jahr ab. Die Aufarbeitung der einzelnen Datensätze erfolgt mit Hilfe von Python.
+Für die Simulation des Einflusses des virtuellen Kraftwerks kamen drei Datensätze zum Einsatz. Hierzu zählt ein Haushaltslastprofil, das Erzeugungsprofil einer Photovoltaikanlage und das Profil der Netzfrequenz im europäische Verbundsystem, welche modellexogen die Grundlage der Simulation bilden. Jeder Datensatz hat eine 1-minütige Auflösung und bildet ein ganzes Jahr ab. Die Aufarbeitung der einzelnen Datensätze erfolgt mit Hilfe von Python.
 
 \subsubsection{Erzeugungsprofil der Photovoltaikanlage}
 
@@ -54,7 +69,6 @@ Das Erzeugungsprofil der Photvoltaikanlage wurde innerhalb der Vorlesung zur Ver
 Das Haushaltslastprofil entspricht einem repräsentativen elektrische Lastprofile für Wohngebäude in Deutschland auf 1-minütiger Datenbasis. Dieses wird durch die Hochschule für Technik und Wirtschaft Berlin zur Verfügung gestellt \parencite{htwLast18}.\\
 Verwendet wurde das dritte Lastprofil der Datei \texttt{CSV\_74\_Loadprofiles\_1min\_W\_var(1).zip}. Auch dieses wurde normiert. Dafür wurde zuvor die maximale Leistungaufnahme des Systems bestimmt und mit dieser die spezifische Leistungsaufnahme des Systems zu jeder Minute ermittelt.\medskip\\
 Realisiert wurde dies mit folgendem Code:
-
 
 \begin{code}
 \captionof{listing}{Aufbereitung des Datensatzes des repräsentativen elektrischen Lastprofils für Wohngebäude}
@@ -125,3 +139,5 @@ df_fq18_minutes['p_VPP'] =
 df_fq18_minutes.round(3).to_excel('P_VPP.xlsx')
 \end{minted}
 \end{code}
+
+\newpage

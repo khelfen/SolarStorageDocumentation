@@ -1,30 +1,32 @@
 \input{packages.tex}																		% Präambel
 
-\input{acronym.tex}																			% Abkürzungen
+%\input{acronym.tex}																			% Abkürzungen
 
 \input{SIValues.tex}																			% Abkürzungen für lange SI-Einheiten-Kombinationen
 
-\addbibresource{Sources.bib}															% Quellen-Datein Pfad angeben
+%\addbibresource{Sources.bib}															% Quellen-Datein Pfad angeben
 
 \begin{document}
 
-\input{titlepage.tex}																		% Titelblatt
+%\input{titlepage.tex}																		% Titelblatt
 
 %\input{abstract.tex}																			% Abstract
 
-\input{toc.tex}
+%\input{toc.tex}
 
-\input{Ch1.tex}																				% Einleitung
+%\input{Ch1.tex}																				% Einleitung
 
 \input{Theorie.tex}																			% Einleitung
 
-\input{signatures.tex}																		% Unterschriftsfelder
+\input{Berechnung.tex}																	% Beschreibung der Simulation
+
+%\input{signatures.tex}																		% Unterschriftsfelder
 
 \newpage
 
-\printbibliography[																				% Quellenverzeichnis ausgeben
-	heading=bibintoc
-]
+%\printbibliography[																				% Quellenverzeichnis ausgeben
+%	heading=bibintoc
+%]
 
 \newpage
 

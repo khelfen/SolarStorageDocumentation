@@ -11,19 +11,23 @@
 \usepackage[T1]{fontenc}								% Textzeichen für westeuropäische Sprachen
 \usepackage[utf8]{inputenc}							% Umlaute
 \usepackage[ngerman]{babel}						% Automatisch erzeugte Texte werden auf Deutsch ausgegeben
+\usepackage{eurosym}									% €-Symbol
 
 
 %%%%%%%%% Mathe und Naturwissenschaftliche Darstellung
 \usepackage[
 %	fleqn															% linksbündige Formeln
 	]{amsmath}												% Vielzahl von neuen Umgebungen und Befehlen für den mathematischen Bereich
-\usepackage{siunitx}										% Saubere Darestellung von SI Einheiten
+\usepackage{siunitx}									% Saubere Darestellung von SI Einheiten
 \sisetup{
 	locale = DE,												% Deutsche Norm, Kommas werden z.B. erkannt
 	per-mode=fraction,									% Output a/b as \frac{a}{b} - in der Einheit
 	quotient-mode=fraction,								% Output a/b as \frac{a}{b} - im Quotienten
 	fraction-function=\tfrac,
-	range-phrase = {\text{~bis~}}
+	range-units = single,									% Einheit nur hinter zweitem Wert
+	range-phrase = {\text{~bis~}},
+	sticky-per = true,										% \per bleibt bestehen für mehr als eine Einheit
+	separate-uncertainty									% Standardabweichung
 }
 \newenvironment{conditions}						% New environment - Für saubere Darstellung gegebener Variablen
 	{\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
@@ -91,11 +95,11 @@
 \cfoot{Seite \pagemark}									% Mittleres Foot-Element
 
 %%%%%%%%% Abkürzungsverzeichnis:
-\usepackage[													% Paket für Glossaries und Acronym-Glossaries
-	acronym,
-	automake,
-	nopostdot
-	]{glossaries}
+%\usepackage[													% Paket für Glossaries und Acronym-Glossaries
+%	acronym,
+%	automake,
+%	nopostdot
+%	]{glossaries}
 
 %%%%%%%%% Quellen
 \usepackage[

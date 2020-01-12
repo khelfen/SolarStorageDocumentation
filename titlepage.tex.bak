@@ -1,16 +1,16 @@
 \begin{titlepage}
 	\begin{center}
 	
-		\thisfancyput(3.25in,-4.5in){%
+		\thisfancyput(3.125in,-4.5in){%
 			\setlength{\unitlength}{2.5cm}\fancyoval(7,9.5)}
 		
 		\vspace*{1cm}
 		
-		\textbf{\textsc{{\huge Laborprotokoll}}}
+		\textbf{\textsc{{\huge Dokumentation}}}
  
 		\vspace{0.5cm}
 
-		{\Large Wasserstoff-Energiespeicher\\\medskip\noindent Niedertemperatur-Metallhydrid-Speicher}
+		{\Large Primärregelleistungserbringung\\\medskip\noindent durch ein dezentrales virtuelles Kraftwerk}
  
 		\vspace{0.5cm}
 
@@ -30,8 +30,8 @@
 			\begin{flushleft}
 				\textbf{Studiengang:}\\
 				\textbf{Fachbereich:}\newline\newline
-				\textbf{Teilnehmer:}\newline\newline\newline\newline
-				\textbf{Betreuerin:}\\
+				\textbf{Autoren:}\newline\newline
+				\textbf{Prüfer:}\\
 			\end{flushleft}
 		\end{minipage}~
 		\begin{minipage}{0.4\textwidth}            
@@ -39,10 +39,8 @@
 				Regenerative Energien (M)\\
 				Ingenieurwissenschaften – Energie und Information\\
 				Kilian Helfenbein\\
-				Thorsten Koll\\
-				Patrick Vogel\\
 				Michaela Zoll\\
-				Dipl.-Ing.(FH) S. Kupzok M.Sc.\\
+				Johannes Weniger\\
 			\end{flushright}        
 		\end{minipage}\\[2 cm]
 		
