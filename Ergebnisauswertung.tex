@@ -28,18 +28,21 @@ In den nachfolgenden Abschnitten werden die wichtigsten Ergebnisse der Simulatio
 \subsection{Ergebnisdarstellung}
 Zunächst werden die entstandenen Extrempunkte betrachtet. Da das Ziel des Projekts primär die wirtschaftliche Beurteilung der Regelleistungserbringung durch PV-Batteriespeicher ist, werden die Fälle untersucht, in denen der direkte und indirekte finanzielle Verlust und Gewinn maximal sind. \\
 Um diese Bedingungen zu definieren werden folgende Annahmen getroffen. Es ist davon auszugehen, dass bei aktivem VPP mehr Energie durch die PV-Anlage in das Netz eingespeist wird, da die Batterie aufgrund der geltenden SoC-Grenzen eine geringere Speicherkapazität bietet. Deswegen unterliegt der höchstmögliche Gewinn durch das VPP der Bedingung, dass die EEG Vergütung maximal ist. Umgekehrt ist der größte Verlust durch das VPP bei minimaler EEG Vergütung zu erwarten. Die Fixkosten und variablen Kosten, die nur die Bilanz ohne VPP beeinflussen, haben hingegen eine genau gegenteilige Wirkung. Je höher sie sind, desto günstiger ist es für den Wechsel zur SonnenFlat. \\
-Die einzelnen Einnahme- und Kostenpunkte für die Extrempunkte sind in \ref{fig:Bilanz_minmax} aufgetragen. Das obere Balkendiagramm zeigt den günstigsten Fall. Konkret wird erreicht sich Maximum der Bilanzdifferenz bei 
+Die einzelnen Einnahme- und Kostenpunkte für die Extrempunkte sind in \ref{fig:Bilanz_minmax} aufgetragen. Das obere Balkendiagramm zeigt den günstigsten Fall. Konkret wird das Maximum der Bilanzdifferenz bei 
+
 \begin{itemize}
 \itemsep-0.5em
-	\item Einem Hausverbrauch von 10000{\kwh}
-	\item Einer Kapazität der Batterie von 14{\kwh}
-	\item Einer Größe der Photovoltaikanlage von 9.5{\kwp}
-	\item Einer EEG-Vergütung für die Stromeinspeisung von 12.75{\ctkwh}
-	\item Einem Grundpreis des Vergleichstromtarifs von 12{\Eurkwh}
-	\item Einem Arbeitspreis des Vergleichstromtarifs von 32{\ctkwh}
+	\item Einem Hausverbrauch von \SI{10000}{\kwh}
+	\item Einer Kapazität der Batterie von \SI{14}{\kwh}
+	\item Einer Größe der Photovoltaikanlage von \SI{9.5}{\kwp}
+	\item Einer EEG-Vergütung für die Stromeinspeisung von \SI{12.75}{\ctkwh}
+	\item Einem Grundpreis des Vergleichstromtarifs von \SI{12}{\Eurkwh}
+	\item Einem Arbeitspreis des Vergleichstromtarifs von \SI{32}{\ctkwh}
 \end{itemize}
-erreicht. Die Einnahmen durch die Wirkung des VPPs belaufen sich auf maximal 849.02 Euro\\•
-Die Zusammensetzung des Minimums der Bilanzdifferenz wird im unteren Diagramm abgebildet und befindet sich bei
+
+erreicht. Die Einnahmen durch die Wirkung des VPPs belaufen sich auf maximal \SI{849.02}{\sieuro}.
+Das Minimums der Bilanzdifferenz wird im unteren Diagramm abgebildet und befindet sich bei
+
 \begin{itemize}
 \itemsep-0.5em
 	\item Einem Hausverbrauch von \SI{10000}{\kwh}
@@ -49,6 +52,7 @@ Die Zusammensetzung des Minimums der Bilanzdifferenz wird im unteren Diagramm ab
 	\item Einem Grundpreis des Vergleichstromtarifs von \SI{5}{\Eurkwh}
 	\item Einem Arbeitspreis des Vergleichstromtarifs von \SI{25}{\ctkwh}
 \end{itemize}
+
 Der maximale Verlust durch das VPP beträgt -321,60 Euro.
 \begin{figure}[H]
 	\begin{center}

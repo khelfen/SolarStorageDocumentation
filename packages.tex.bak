@@ -24,7 +24,6 @@
 	per-mode=fraction,									% Output a/b as \frac{a}{b} - in der Einheit
 	quotient-mode=fraction,								% Output a/b as \frac{a}{b} - im Quotienten
 	fraction-function=\tfrac,
-	range-units = single,									% Einheit nur hinter zweitem Wert
 	range-phrase = {\text{~bis~}},
 	sticky-per = true,										% \per bleibt bestehen für mehr als eine Einheit
 	separate-uncertainty									% Standardabweichung
@@ -50,6 +49,7 @@
 	]{caption}													% customise captions
 \usepackage{subfigure}									%support for the manipulation and reference of small or ‘sub’ figures and tables within a single figure or table environment
 \usepackage{fancybox}									% kann Boxen (Rahmen) um Elemente legen
+
 
 %%%%%%%%% Seitenformatierung
 \usepackage[
