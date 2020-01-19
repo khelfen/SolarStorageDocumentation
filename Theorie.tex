@@ -6,22 +6,21 @@ In diesem Kapitel sollen die wichtigsten Grundlagen erläutert werden, um eine B
 
 \subsection{Primärregelleistung}
 
-Um zukünftig die Versorgungssicherheit gewährleisten zu können, müssen nicht nur erhebliche Mengen an Kraftwerksleistungen regenerativer Energieanlagen zugebaut werden, sondern auch die Erbringung von Systemdienstleistungen garantiert werden, welche bisher zum großen Teil durch konventionelle Großkraftwerke gedeckt werden. Ein wichtiger Baustein ist die Aufrechterhaltung der Netzfrequenz, welches durch die Erbringung von Regelleistung ermöglicht wird. Diese Simulation soll sich mit der Erbringung von Primärregelleistung befassen, welches die schnellste Art der Regelleistung im europäische Verbundsystem darstellt.\medskip\\
-Der Zweck der Primärregelleistung liegt darin, die Netzfrequenz durch gezielte Leistungserbringung zu stabilisieren. Nötig wird dies, wenn eine Differenz zwischen dem Angebot und der Nachfrage an Leistung im Stromnetz besteht. Die Leistungserbringung wird automatisch durch eine Frequenzabweichung von der Soll-Netzfrequenz von \SI{50}{\hertz} aktiviert. Dabei wird durch die Übertragungsnetzbetreiber ein Totband von $\pm \SI{10}{\milli\hertz}$ definiert, in welchem keine Erbringung von Primärregelleistung erfolgen muss. Bei einer Abweichung von $\pm \SI{200}{\milli\hertz}$ muss hingegen die volle ausgeschriebene Regelleistung des Kraftwerks erbracht werden und dazwischen proportional zu der Frequenzabweichung \parencite{nextKW20}.
+Systemdienstleistungen werden eingesetzt, um die Versorgungssicherheit des europäischen Verbundsystems sicherzustellen. Da der Großteil dieser Maßnahmen bisher von konventionellen Kraftwerken erbracht wird, ist, neben dem Zubau von regenerativen Energieanlagen, das Erschließen von alternativen Systemdienstleistungserbringern ein essenzieller Bestandteil der Energiewende. In dieser Simulation soll im Näheren die Regelleistung und insbesondere die Primärregelleistung betrachtet werden.\medskip\\
+Regelleistung wird genutzt, um die Netzfrequenz zu stabilisieren. Primärregelleistung stellt dabei die erste Instanz der Frequenzregelung dar und dient dazu momentane Unterschiede zwischen Leistungsangebot und -nachfrage im Stromnetz auszugleichen. Das durch den Übertragungsnetzbetreiber definierte Totband beträgt $\pm \SI{10}{\milli\hertz}$. Wird die Soll-Netzfrequenz von \SI{50}{\hertz} um mehr als das Totband über- oder unterschritten wird automatisch begonnen Regelleistung zu erbringen, die dabei proportional mit der Frequenzabweichung steigt. Bei einer Differenz von $\pm \SI{200}{\milli\hertz}$ ist allerdings ein kritischer Wert erreicht und die volle präqualifizierte Regelleistung des Kraftwerks muss erbracht werden. \parencite{nextKW20}.
 
 
 \subsection{sonnenBatterie eco 8.0}\label{sec:SB_eco8_Theorie}
 
-Ein Schwarm aus Heimspeichern der sonnenBatterie eco 8.0 Serie bildet die physische Grundlage des virtuellen Kraftwerks. Bei der eco 8.0 handelt es sich um einen Lithium-Eisenphosphat-Akkumulator, dessen wesentlichen technischen Eigenschaften die Möglichkeiten des gesamten virtuellen Kraftwerks begrenzen.\\
+Die physische Grundlage des virtuellen Kraftwerks wird durch eine Flotte von Heimspeichern gebildet. In dieser Simulation werden Heimspeicher der sonnenBatterie eco 8.0 Serie gewählt. Die Möglichkeiten und Limitationen des virtuellen Kraftwerks richten sich entsprechend nach den technischen Eigenschaften dieser Lithium-Eisenphosphat Akkumulatoren.\\
 Die einzelnen Batterien besitzen je nach Ausstattung eine nutzbare Batteriekapazität von \SIrange{4}{16}{\kwh}. Vereinfachend wird angenommen, dass nur sonnenBatterien mit einer Kapazität von mindestens \SI{8}{\kwh} eingesetzt werden. Ab einer Kapazität von  \SI{8}{\kwh} ist jede Batterie  mit einem Wechselrichter ausgestattet, der eine Nennleistung von \SI{3.3}{\kilo\watt} besitzt \parencite{sonnenBat18}.\\
 Der mittlere Wirkungsgrad des Wechselrichters beträgt im Entladefall \SI{94.5}{\percent} und im Ladefall \SI{94.4}{\percent}. Weiterhin weißt die Batterie einen Wirkungsgrad von \SI{93.8}{\percent} auf \parencite{htwInspek19}.
 
 \subsection{Das virtuelle Kraftwerk}\label{sec:VK_Theorie}
 
 Das virtuelle Kraftwerk der Simulation wurde mit einer Gesamtleistung von \SI{1}{\mega\watt} präqualifiziert. Als Annahme wurden hierzu insgesamt 600 Heimspeicher der sonnenBatterie eco 8.0 Serie vernetzt, mit einer Gesamtleitung von \SI{1.98}{\mega\watt}. Der theoretische Leistungsspielraum des Kraftwerks liegt somit deutlich über der präqualifizierten Leistung.\\
-Nötig ist dies aus verschiedenen Gründen. So kann beispielsweise nicht die Verfügbarkeit jeder Batterie zu jedem Zeitpunkt garantiert werden. Die einzelnen Batterien befinden sich in Privathand und unterliegen somit nur begrenzt der Kontrolle durch den Betreiber. Es kann zu Störungen der Hard- oder Software der einzelnen Batterien kommen, aber auch zu Störungen der Internetverbindung.\\
-Die größten beschränkenden Faktoren des virtuellen Kraftwerks sind jedoch der Ladestand und der aktuelle Arbeitspunkt. Der Arbeitspunkt bestimmt, wie viel Regelleistung in positiver bzw. negativer Regelrichtung zur Verfügung steht. Als Regelleistung wird die Abweichung vom Arbeitspunkt verstanden. Der Arbeitspunkt der Batterien entspricht der eigenverbrauchsoptimierten Leistungsvorgabe.\\
-Wenn der Ladestand zu gering bzw. zu hoch ist, kann die Erbringung der Regelleistung nicht in der gewünschten Dauer erfolgen. Bei einem zu hohen bzw. zu niedrigen Arbeitspunkt des Batteriepools kann das Kraftwerk bei einem Leistungsabruf nicht die geforderte Regelleistung erbringen. Durch aktives Lademanagement und das Einhalten von Grenzen für den Ladezustand muss im Realbetrieb die Erbringung der präqualifizierten Regelleistung garantiert werden.\\
+Dieser Umstand wird zum einen gerechtfertigt durch die Tatsache, dass nicht garantiert werden kann, dass jede Batterie zu jedem Zeitpunkt verfügbar ist. Es kann zu Störungen in Hard- und Software der Speicher kommen, aber auch die Internetverbindung kann zeitweise unterbrochen werden. Außerdem unterliegt die Kontrolle der Anlage in erster Linie der Privatperson und nur bedingt dem Betreiber.\\
+Die am stärksten überwiegenden Einflussgrößen auf die Leistungsfähigkeit des virtuellen Kraftwerks sind aber der eigenverbrauchsoptimierte Betrieb der Anlage und der Ladestand. Je nach dem aktuellem Betriebspunkt kann nur noch begrenzt zusätzlich Primärregelleistung aufgebracht werden, bis die maximale Umrichterleistung erreicht wird. Bei einem zu hohen bzw. zu niedrigen Betriebspunkt der Batterieflotte kann also unter Umständen die geforderte Regelleistung nicht geliefert werden. Ein zu hoher bzw. niedriger Ladestand beschränkt zudem den Zeitraum, über den Regelleistung erbracht werden kann. Diesen Faktoren muss im Realbetrieb entgegengewirkt werden mit aktiven Lademanagement und Ladezustandsgrenzen, um zu gewährleisten, dass die präqualifizierte Regelleistung zu jeder Zeit geliefert werden kann.\\
 Das grundlegende Funktionsprinzip des virtuellen Kraftwerks wird durch einen übergeordneten Regler bestimmt. Dieser wird in der Simulation stark vereinfacht. So wird von einem homogenen Verhalten der Batterien ausgegangen. Dies bedeutet, dass jede Batterie  die gleichen technischen Parameter besitzt und das sich die zugehörigen Photovoltaikanlagen ebenfalls identisch verhalten. Das führt dazu, dass den einzelnen Batterien feste Ladestandsgrenzen zugeordnet werden können, damit die Erbringung von Regelleitung im Bedarfsfall gewährleistet werden kann.
 
 \begin{figure}[H]
@@ -52,35 +51,9 @@ Eine weitere Besonderheit des sonnenFlat Vertrages ist der sogenannte sonnenBonu
 
 \subsection{Verwendete Python und Matlab Befehle}
 
-In diesem Kapitel werden die wichtigsten Python und Matlab Befehle erklärt. Auf Befehle, die bereits Teil der Vorlesung waren, wird nicht eingegangen.
-
-\subsubsection*{Python}
-
-\textbf{Glob}\\
-Das \texttt{Glob}-Modul findet alle Pfadnamen, die mit einem angegebenen Muster übereinstimmen \parencite{PyGlob20}.\medskip\\
-
-\noindent\textbf{Pandas}\\
-\texttt{Pandas} bietet Funktionen für die Strukturierung und Analyse von Datensätzen \parencite{PyPan20}. Die wichtigsten verwendeten Befehle der \texttt{Pandas}-Bibliothek lauten wie folgt:
-
-\begin{conditions}
-	\text{\texttt{read\_csv()}}		&		Einlesen einer CSV-Datei als Datenfeld\\
-	\text{\texttt{DataFrame()}}	&		Erstellt ein Datenfeld mit gewünschten Parametern\\
-	\text{\texttt{multiply()}}		&		Ermöglicht Multiplikation eines Datenfeldes mit einem Skalar\\
-	\text{\texttt{round()}}			&		Runden der Elemente eines Datenfeldes\\
-	\text{\texttt{to\_csv()}}			&		Speichern eines Datenfeldes als CSV-Datei\\
-	\text{\texttt{concat()}}			&		Verketten von einzelnen Datenfeldern\\
-\end{conditions}
-
-
-\subsubsection*{Matlab}
-
-\textbf{Polyval}\\
-Der Befehl \texttt{polyval(p, x)} wertet ein Polynom \texttt{p} an jedem Punkt in \texttt{x} aus. Das Argument \texttt{p} ist ein Vektor der Länge \texttt{n $+$ 1}, dessen Elemente die Koeffizienten (in absteigenden Potenzen) eines Polynoms \texttt{n}-ten Grades sind \parencite{MatPol20}:
-
-\[ p\left(x\right)	= p_1 \cdot x^n + p_2 \cdot x^{n-1} + ... + p_n \cdot x + p_{n+1}	\]
-
-\noindent\textbf{Reshape}\\
-\texttt{Reshape} formt ein gegebenes Array in eine gewünschte Form um. Beispielsweise formt \texttt{reshape(A, [2,3])} \texttt{A} in eine 2-mal-3-Matrix um \parencite{MatRe20}.
+% Hier muss erklärt werden:
+% Matlab: Polyval + switch, reshape
+% Python: glob, pandas stuff
 
 \subsection{Datengrundlage}
 
