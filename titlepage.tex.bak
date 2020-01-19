@@ -10,7 +10,7 @@
  
 		\vspace{0.5cm}
 
-		{\Large Primärregelleistungserbringung\\\medskip\noindent durch ein dezentrales virtuelles Kraftwerk}
+		{\Large Primärregelleistungserbringung\\\medskip\noindent eines dezentralen virtuelles Kraftwerk}
  
 		\vspace{0.5cm}
 
@@ -30,6 +30,7 @@
 			\begin{flushleft}
 				\textbf{Studiengang:}\\
 				\textbf{Fachbereich:}\newline\newline
+				\textbf{Gruppe:}\\
 				\textbf{Autoren:}\newline\newline
 				\textbf{Prüfer:}\\
 			\end{flushleft}
@@ -38,6 +39,7 @@
 			\begin{flushright}
 				Regenerative Energien (M)\\
 				Ingenieurwissenschaften – Energie und Information\\
+				N\\
 				Kilian Helfenbein\\
 				Michaela Zoll\\
 				Johannes Weniger\\
