@@ -52,11 +52,10 @@ Als erste Approximation wird angenommen, dass das virtuelle Kraftwerk an \SI{80}
 \noindent Der erste Fall tritt immer dann auf, wenn auf einen Tag ohne Erbringung von Primärregelleistung ein regelleistungsaktiver Tag folgt. In diesem Fall werden die Ladestandsgrenzen von \SIrange{20}{80}{\percent} bereits \SI{12}{\hour} vor der eigentlichen Erbringung aktiviert. Damit soll möglichst sichergestellt werden, dass zu Beginn der Regelleistungserbringung genügend Energie in den Speichern zur Verfügung steht. Weiterhin soll auf diese Weise auf eine Simulation des Nachlademanagements des virtuellen Kraftwerks verzichtet werden können.\medskip\\
 Im nächsten Schritt, muss ermittelt werden ob die eigene Batterie in dem vorliegenden Zeitschritt an der Erbringung von Primärregelleistung teilnimmt. Hierfür wurde ein einfacher boolean Minuten-Vektor geschaffen, mit folgenden Bedeutungen:
 
-\begin{itemize}
-\itemsep-0.5em
-	\item $0 =$ Eigenverbrauchsoptimierung
-	\item $1 =$ Erbringung von Primärregelleistung
-\end{itemize}
+\begin{conditions}
+	0		&		Eigenverbrauchsoptimierung\\
+	1		&		Erbringung von Primärregelleistung\\
+\end{conditions}
 
 \noindent Damit die Batterie an der Regelleistungserbringung teilnimmt, muss die Regelleistungserbringung des gesamten virtuellen Kraftwerks aktiv sein, die Frequenzabweichung der Netzfrequenz außerhalb des Totbandes liegen und die Batterie zu den verwendeten Batterien des Zeitschritts gehören.\\
 Um die letzte Vorraussetzung zu approximieren, wurde vorerst die Wahrscheinlichkeit berechnet, dass die Batterie Primärregelleistung in dem Zeitschritt erbringen muss.
@@ -83,28 +82,15 @@ Um die Approximation bewerten zu können, muss ein Optimum definiert werden. In 
 
 \begin{equation}
 \label{eq:approx_FCR2}
-	P_{\text{FCR}} = \sum_{t=0}^{t_{\text{end}}} P_{\text{FCR}_{\text{VPP}}} \cdot \frac{1000}{60 \cdot n_{Bat}}, P_{\text{FCR}_{\text{VPP}}} > 0 \text{bzw.} P_{\text{FCR}_{\text{VPP}}} < 0
+	E_{\text{FCR}} = \sum_{t=0}^{t_{\text{end}}} P_{\text{FCR}_{\text{VPP}}}\left(t\right) \cdot \frac{1000}{60 \cdot n_{\text{Bat}}},~ \text{wenn: VPP} = \text{aktiv}
 \end{equation}
 
-\begin{code}
-\captionof{listing}{Berechnung der theoretischen Regelenergie der Batterien}
-\label{code:VPP}
-\begin{minted}{matlab}
-% Berechnung der theoretischen Energieabgabe des Batteriesystems
-% für die Erbringung von FCR
+\begin{conditions}
+	E_{\text{FCR}}	&		Theoretische positive bzw. negative Regelenergie in \SI{}{\kwh}\\
+	n_{\text{Bat}}		&		Anzahl der Batterien des virtuellen Kraftwerks\\
+\end{conditions}
 
-% Nur berechnen, wenn VPP auch aktiv
-Pvppactive = LProf.pvpp .* LProf.vppactive;
-
-% Negative Regelleistung - Batterie laden
-E_neg = abs(sum(Pvppactive(Pvppactive < 0))) * 1000 / 60 / VPP.n_Bat;
-
-% Positive Regelleistung - Batterie laden
-E_pos = sum(Pvppactive(Pvppactive > 0)) * 1000 / 60 / VPP.n_Bat;
-\end{minted}
-\end{code}
-
-\noindent Bei einer homogenen Aufteilung der Last bedeutet dies die Erbringung von \SI{477.1}{\kwh} negativer (Batterieladung) und \SI{392.6}{\kwh} positiver (Batterieentladung) Primärregelleistung.
+\noindent Je nach Richtung der Regelleistungserbringung werden nur alle $P_{\text{FCR}_{\text{VPP}}} > 0$  bzw. \linebreak $P_{\text{FCR}_{\text{VPP}}} < 0$ summiert. Bei einer homogenen Aufteilung der Last bedeutet dies die Erbringung von \SI{477.1}{\kwh} negativer (Batterieladung) und \SI{392.6}{\kwh} positiver (Batterieentladung) Primärregelleistung.
 
 \subsubsection*{Positive Primärregelleistung}
 

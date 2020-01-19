@@ -52,11 +52,10 @@ Als erste Approximation wird angenommen, dass das virtuelle Kraftwerk an \SI{80}
 \noindent Der erste Fall tritt immer dann auf, wenn auf einen Tag ohne Erbringung von Primärregelleistung ein regelleistungsaktiver Tag folgt. In diesem Fall werden die Ladestandsgrenzen von \SIrange{20}{80}{\percent} bereits \SI{12}{\hour} vor der eigentlichen Erbringung aktiviert. Damit soll möglichst sichergestellt werden, dass zu Beginn der Regelleistungserbringung genügend Energie in den Speichern zur Verfügung steht. Weiterhin soll auf diese Weise auf eine Simulation des Nachlademanagements des virtuellen Kraftwerks verzichtet werden können.\medskip\\
 Im nächsten Schritt, muss ermittelt werden ob die eigene Batterie in dem vorliegenden Zeitschritt an der Erbringung von Primärregelleistung teilnimmt. Hierfür wurde ein einfacher boolean Minuten-Vektor geschaffen, mit folgenden Bedeutungen:
 
-\begin{itemize}
-\itemsep-0.5em
-	\item $0 =$ Eigenverbrauchsoptimierung
-	\item $1 =$ Erbringung von Primärregelleistung
-\end{itemize}
+\begin{conditions}
+	0		&		Eigenverbrauchsoptimierung\\
+	1		&		Erbringung von Primärregelleistung\\
+\end{conditions}
 
 \noindent Damit die Batterie an der Regelleistungserbringung teilnimmt, muss die Regelleistungserbringung des gesamten virtuellen Kraftwerks aktiv sein, die Frequenzabweichung der Netzfrequenz außerhalb des Totbandes liegen und die Batterie zu den verwendeten Batterien des Zeitschritts gehören.\\
 Um die letzte Vorraussetzung zu approximieren, wurde vorerst die Wahrscheinlichkeit berechnet, dass die Batterie Primärregelleistung in dem Zeitschritt erbringen muss.

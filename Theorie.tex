@@ -52,9 +52,35 @@ Eine weitere Besonderheit des sonnenFlat Vertrages ist der sogenannte sonnenBonu
 
 \subsection{Verwendete Python und Matlab Befehle}
 
-% Hier muss erklärt werden:
-% Matlab: Polyval + switch, reshape
-% Python: glob, pandas stuff
+In diesem Kapitel werden die wichtigsten Python und Matlab Befehle erklärt. Auf Befehle, die bereits Teil der Vorlesung waren, wird nicht eingegangen.
+
+\subsubsection*{Python}
+
+\textbf{Glob}\\
+Das \texttt{Glob}-Modul findet alle Pfadnamen, die mit einem angegebenen Muster übereinstimmen \parencite{PyGlob20}.\medskip\\
+
+\noindent\textbf{Pandas}\\
+\texttt{Pandas} bietet Funktionen für die Strukturierung und Analyse von Datensätzen \parencite{PyPan20}. Die wichtigsten verwendeten Befehle der \texttt{Pandas}-Bibliothek lauten wie folgt:
+
+\begin{conditions}
+	\text{\texttt{read\_csv()}}		&		Einlesen einer CSV-Datei als Datenfeld\\
+	\text{\texttt{DataFrame()}}	&		Erstellt ein Datenfeld mit gewünschten Parametern\\
+	\text{\texttt{multiply()}}		&		Ermöglicht Multiplikation eines Datenfeldes mit einem Skalar\\
+	\text{\texttt{round()}}			&		Runden der Elemente eines Datenfeldes\\
+	\text{\texttt{to\_csv()}}			&		Speichern eines Datenfeldes als CSV-Datei\\
+	\text{\texttt{concat()}}			&		Verketten von einzelnen Datenfeldern\\
+\end{conditions}
+
+
+\subsubsection*{Matlab}
+
+\textbf{Polyval}\\
+Der Befehl \texttt{polyval(p, x)} wertet ein Polynom \texttt{p} an jedem Punkt in \texttt{x} aus. Das Argument \texttt{p} ist ein Vektor der Länge \texttt{n $+$ 1}, dessen Elemente die Koeffizienten (in absteigenden Potenzen) eines Polynoms \texttt{n}-ten Grades sind \parencite{MatPol20}:
+
+\[ p\left(x\right)	= p_1 \cdot x^n + p_2 \cdot x^{n-1} + ... + p_n \cdot x + p_{n+1}	\]
+
+\noindent\textbf{Reshape}\\
+\texttt{Reshape} formt ein gegebenes Array in eine gewünschte Form um. Beispielsweise formt \texttt{reshape(A, [2,3])} \texttt{A} in eine 2-mal-3-Matrix um \parencite{MatRe20}.
 
 \subsection{Datengrundlage}
 

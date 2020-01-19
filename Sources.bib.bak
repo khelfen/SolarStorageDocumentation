@@ -26,12 +26,40 @@
     url = {https://www.netzfrequenz.info/},
     note = {(Zugriff am 30.11.2019)}
 }
+@online{MatPol20,
+    author = {The MathWorks, Inc.},
+    title = {polyval},
+    year = {2020},
+    url = {https://de.mathworks.com/help/matlab/ref/polyval.html},
+    note = {(Zugriff am 19.01.2020)}
+}
+@online{MatRe20,
+    author = {The MathWorks, Inc.},
+    title = {reshape},
+    year = {2020},
+    url = {https://de.mathworks.com/help/matlab/ref/reshape.html},
+    note = {(Zugriff am 19.01.2020)}
+}
 @online{nextKW20,
     author = {Next Kraftwerke GmbH},
     title = {Was ist Primärregelleistung (PRL)?},
     year = {2020},
     url = {https://www.next-kraftwerke.de/wissen/primaerreserve-primaerregelleistung},
     note = {(Zugriff am 10.01.2020)}
+}
+@online{PyGlob20,
+    author = {Python Software Foundation},
+    title = {glob - Unix style pathname pattern expansion},
+    year = {2020},
+    url = {https://docs.python.org/3/library/glob.html},
+    note = {(Zugriff am 19.01.2020)}
+}
+@online{PyPan20,
+    author = {Pandas developers},
+    title = {Python Data Analysis Library},
+    year = {2020},
+    url = {https://pandas.pydata.org/index.html},
+    note = {(Zugriff am 19.01.2020)}
 }
 @misc{regel_PQ19,
     author = {Deutsche ÜNB},
